@@ -52,9 +52,12 @@ class MovieDetailState extends State<MovieDetail> {
                 pinned: true,
                 elevation: 0.0,
                 flexibleSpace: FlexibleSpaceBar(
-                  background: Image.network(
-                    "https://image.tmdb.org/t/p/w500${movieItem.posterUrl}",
-                    fit: BoxFit.cover,
+                  background: Hero(
+                    tag: 'poster${movieItem.movieId}',
+                    child: Image.network(
+                      "https://image.tmdb.org/t/p/w500${movieItem.posterUrl}",
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),

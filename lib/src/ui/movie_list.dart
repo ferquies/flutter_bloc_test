@@ -55,9 +55,12 @@ class MovieListState extends State<MovieList> {
         return GridTile(
           child: InkResponse(
             enableFeedback: true,
-            child: Image.network(
-              'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].poster_path}',
-              fit: BoxFit.cover,
+            child: Hero(
+              tag: 'poster${snapshot.data.results[index].id}',
+              child: Image.network(
+                'https://image.tmdb.org/t/p/w185${snapshot.data.results[index].poster_path}',
+                fit: BoxFit.cover,
+              ),
             ),
             onTap: () => openDetailPage(snapshot.data, index),
           ),
